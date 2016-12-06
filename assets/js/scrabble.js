@@ -256,12 +256,20 @@ function decrementTurnCounter() {
   element.innerHTML = newString;
 }
 
+// Gets called when the submit buttong is pressed, check if word is valid
+function submitWord() {
+  // Change text on page
+  var valid = findWord(dictionaryWord);
+  var element = document.getElementById("valid_here");
+  element.innerHTML = valid;
+}
+
+// The dictionary lookup object
+var dict = {};
+
 // Credits to http://ejohn.org/blog/dictionary-lookups-in-javascript/ and Jason Downing for modifying this  
 // Check if word is valid, if so, submit it
-function submitWord() {
-  // The dictionary lookup object
-  var dict = {};
-
+function loadDictionary() {
   // Do a jQuery Ajax request for the text dictionary
   $.get( "dict/dict.txt", function( txt ) {
     // Get an array of all the words
@@ -272,26 +280,22 @@ function submitWord() {
     for ( var i = 0; i < words.length; i++ ) {
         dict[ words[i] ] = true;
     }
-  });
-  
-  // Modified to only pass in one word, which can then be verified.
-  function findWord( word ) {
-    // See if it's in the dictionary
-    if ( dict[ word ] ) {
-        // If it is, return that word
-        return word;
-    }
-
-    // Otherwise, it isn't in the dictionary.
-    return dictionaryWord + " is not a valid word!";
-  }
-  
-  // Change text on page
-  var valid = findWord(dictionaryWord);
-  var element = document.getElementById("valid_here");
-  element.innerHTML = valid;
-  
+  });  
 }
+
+// Modified to only pass in one word, which can then be verified.
+function findWord( word ) {
+  // See if it's in the dictionary
+  if ( dict[ word ] ) {
+      // If it is, return that word
+      return word + " is valid!";
+  }
+
+  // Otherwise, it isn't in the dictionary.
+  return dictionaryWord + " is not a valid word!";
+}
+
+
 
 
  

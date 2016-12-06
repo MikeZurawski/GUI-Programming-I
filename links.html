@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+File: links.html
+4610 Assignment 4: Styling your first webpage with CSS
+Michael Zurawski, UMass Lowell Computer Science, michael_zurawski@student.uml.edu
+updated by Mike on November 1, at 6:00 PM
+Purpose: Provide links to other assignments and other stuff
+-->
+<html>
+    <head>
+        <title>Links</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <!-- Sets up the navigation bar for the page and links other pages -->
+        <ul class="top" id="navigation">
+            <li><a href="index.html" class="on">Home</a></li>
+            <li><a class="current" href="links.html">Links</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <!-- Displays links to other sites-->
+        <div class="buttons">
+            <h2>Most Visited Sites</h2>
+            <button class="button" onclick="location.href='http://www.reddit.com'">Reddit</button>
+            <button class="button button2" onclick="location.href='http://www.youtube.com'">Youtube</button>
+            <button class="button button3" onclick="location.href='http://www.google.com'">Google</button>
+            <button class="button button4" onclick="location.href='http://www.twitter.com'">Twitter</button>
+            <button class="button button5" onclick="location.href='http://www.instagram.com'">Instagram</button>
+        </div>
+        <!-- Displays links to completed homeworks-->
+        <div class="homework">
+            <h2>Homeworks/In Class Assignments</h2>
+            <button class="hwbutton">Homework 2</button>
+            <button class="hwbutton">Homework 3</button>
+            <button class="hwbutton" onclick="location.href='homework6.html'">Homework 6</button>
+            <button class="hwbutton" onclick="location.href='homework7.html'">Homework 7</button>
+            <button class="hwbutton" onclick="location.href='homework8.html'">Homework 8</button>
+            <button class="hwbutton" onclick="location.href='example.html'">In Class 5</button>
+
+        </div>
+        <div class="footer">
+            <footer>
+                <p> Michael Zurawski 2016 </p>
+                <a href="https://twitter.com/mikezurawski" class="twitter-follow-button" data-show-count="false">Follow @mikezurawski</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </footer>
+        </div>
+    </body>
+</html>

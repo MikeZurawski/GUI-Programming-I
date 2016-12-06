@@ -1,0 +1,14 @@
+.row.extra-bottom-padding{
+   margin-bottom: 60px;
+}
+#outerID_center_me {
+  margin-left: 20%;
+}
+/* https://jqueryui.com/droppable/ */
+#droppable, #droppable2, #droppable3, #droppable4, #droppable5, #droppable6, #droppable7, #droppable8, #droppable9, #droppable10, #droppable11, #droppable12, #droppable13, #droppable14, #droppable15 { 
+  width: 80px; 
+  height: 80px; 
+  padding: 0.5em; 
+  float: left; 
+  border: solid;
+}

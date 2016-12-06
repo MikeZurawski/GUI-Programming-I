@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+File: homework8.html
+4610 Assignment 8: Using the jQuery UI Slider and Tab Widgets
+Michael Zurawski, UMass Lowell Computer Science, michael_zurawski@student.uml.edu
+updated by Mike on November 20, at 6:00 PM
+Purpose: Home page to assignment 8
+Sources: 
+https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js
+https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js
+https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js
+http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.css
+https://code.jquery.com/ui/1.12.1/jquery-ui.js
+-->
+<html>
+    <head>
+        <title>Michael Zurawski Website</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <ul class="top" id="navigation">
+            <li><a class="current" href="index.html">Home</a></li>
+            <li><a href="links.html">Links</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <!-- Creates a form for user to input values which in turn creates a multiplication table -->
+            
+        <form id="myform" onsubmit="removeTable(); makeTable();return false;">
+            <div class="form-group">
+                <label for="multiplicand1">Vertical Boundry 1</label>
+                <div class="amount-slider" onclick="removeTable(); makeTable(); return false;"></div>
+                <input class="form-control" name="multiplicand1" type="number" id="multiplicand1"  placeholder="Multiplicand">  
+            </div> 
+            <div class="form-group">
+                <label for="multiplicand2">Vertical Boundry 2</label>
+                <div class="amount-slider" onclick="removeTable(); makeTable(); return false;"></div>
+                <input name="multiplicand2" type="number" value="" class="form-control" id="multiplicand2"  placeholder="Multiplicand">
+            </div>    
+            <div class="form-group">
+                <label for="multiplier1">Horizontal Boundry 1</label>
+                <div class="amount-slider" onclick="removeTable(); makeTable(); return false;"></div>
+                <input name="multiplier1" type="number" value="" class="form-control" id="multiplier1"  placeholder="Multiplier">
+            </div>
+            <div class="form-group">
+                <label for="multiplier2">Horizontal Boundry 2</label>
+                <div class="amount-slider" onclick="removeTable(); makeTable(); return false;"></div>
+                <input name="multiplier2" type="number" value="" class="form-control" id="multiplier2" placeholder="Multiplier">
+            </div>
+            <!-- <button type="submit" class="btn btn-primary" value="Validate!">Submit</button> -->
+        </form>
+        
+        <br><br><br>
+        
+        <!-- Multiplication tables goes here -->
+        <div id="multiTable"> 
+        </div> 
+        
+        <br><br><br>
+        
+        <!--  Handles the tab creation -->
+        <div class="form-group">
+            <label for="txtTabName">Enter Tab Name</label> 
+            <input type="text" id="txtTabName" class="form-control" />
+            <button onclick="addNewTab($('#txtTabName').val());" class="btn btn-primary">Save!</button> 
+        </div>
+        <!-- Tabs are located here -->
+        <div id="divTabs"> 
+            <ul> 
+            </ul> 
+        </div> 
+        <!-- Footer is located here -->
+        <!--
+        <div class="footer">
+            <footer>
+                <p> Michael Zurawski 2016 </p>
+                <a href="https://twitter.com/mikezurawski" class="twitter-follow-button" data-show-count="false">Follow @mikezurawski</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </footer>
+        </div>
+        -->
+
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="assets/js/form-validation.js"></script>
+        <script src="assets/js/mult.js"></script>
+        <script src="assets/js/ui.js"></script>
+    </body>
+</html> 

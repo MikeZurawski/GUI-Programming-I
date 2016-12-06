@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+File: homework8.html
+4610 Assignment 9: Recreate Scrabble
+Michael Zurawski, UMass Lowell Computer Science, michael_zurawski@student.uml.edu
+updated by Mike on December 1, at 6:00 PM
+Purpose: Create a Scrabble game
+Sources: 
+https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js
+https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js
+https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js
+http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.css
+https://code.jquery.com/ui/1.12.1/jquery-ui.js
+https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css
+-->
+<html>
+  <head>
+    <title>Michael Zurawski Website</title>
+    
+    <!-- My own style sheet, commented out because I don't like it -->
+    <!--    <link rel="stylesheet" type="text/css" href="assets/css/style.css">-->
+    
+    <!-- Bootstrap! -->
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- Neat Bootstrap theme I found, looks nice -->
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css">
+    
+    <!-- Scrabble css file -->
+    <link rel="stylesheet" type="text/css" href="assets/css/scrabble.css">
+    
+    <!-- jQuery ui style sheet, commented out for now -->
+    <!--    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.css">-->
+    
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    
+    <!-- Website navigation bar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Michael Zurawski</a>
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    
+    <!-- Scrabble title -->
+    <div class="row text-center">
+      <div class="col-md-12">
+        <div class="page-header">
+          <h1>SCRABBLE<small>The Game</small></h1>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scrabble board   -->
+    <!--
+    <div class="row text-center">
+      <div class="col-md-12">
+        <img src="assets/images/Scrabble_Board_OneLine.png" id="scrabble_board">
+      </div>
+    </div>
+    -->
+    
+    <!-- Rules and known bugs -->
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h3>Rules and Known Bugs</h3>
+        <p>1) Assemble words from left to right. Placing piece to left of an existing board piece will not work and break the game (as of right now). <br> 2) You have seven turns to try and get the highest possible score. <br> 3) Bug: Moving piece across a board square without dropping it will decrement the score, so try to move piece directly to game board. </p>
+      </div>
+    </div>
+    
+    <!-- Game notfiers -->
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div>
+          <h3 id="score_here">SCORE</h3>
+          <small>Drag tile directly to board piece</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div>
+          <h3 id="valid_here">VALID?</h3>
+          <small>Check if submited word is valid</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div>
+          <h3 id="turn_here">TURN</h3>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scrabble Board  -->
+    <div class="row extra-bottom-padding">
+      <div class="col-md-12" id="outerID_center_me">
+        <div id="droppable" class="normal_tile">
+          <p></p>
+        </div>
+        <div id="droppable2" class="normal_tile">
+          <p></p>
+        </div>
+        <div id="droppable3" class="double_word">
+          <p>DOUBLE WORD SCORE</p>
+        </div>
+        <div id="droppable4" class="normal_tile">
+          <p></p>
+        </div>
+        <div id="droppable5" class="normal_tile">
+          <p></p>
+        </div>
+        <div id="droppable6" class="normal_tile">
+          <p></p>
+        </div>
+        <div id="droppable7" class="double_letter">
+          <p>DOUBLE LETTER SCORE</p>
+        </div>
+        <div id="droppable8" class="normal_tile">
+          <p></p>
+        </div>
+        <div id="droppable9" class="double_letter">
+          <p>DOUBLE LETTER SCORE</p>
+        </div>
+        <div id="droppable10" class="normal_tile">
+          <p></p>
+        </div>
+        <div id="droppable11" class="normal_tile">
+          <p></p>
+        </div>
+        <div id="droppable12" class="normal_tile">
+          <p></p>
+        </div>
+        <div id="droppable13" class="double_word">
+          <p>DOUBLE WORD SCORE</p>
+        </div>
+        <div id="droppable14" class="normal_tile">
+          <p></p>
+        </div>
+        <div id="droppable15" class="normal_tile">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Holds scrabble pieces   -->
+    <div class="row text-center">
+      <div class="col-md-12">
+        <img src="assets/images/scrabble-tile-holder-406774_640.png" id="tile_holder">
+        <div id="tile_here"></div>
+      </div>
+    </div>
+    
+    <!-- Buttons!  -->
+    <div class="row text-center extra-bottom-padding">
+      <div class="col-md-12">
+        <button onclick="removeIMG(); generateTiles(); resetString(); decrementTurnCounter();" type="button" class="btn btn-secondary">Reset Tiles!</button>
+        <button onclick="removeIMG(); generateTiles(); droppableTileBoard(); resetScore(); resetString(); resetValidText(); turnCounter();" type="button" class="btn btn-secondary">Reset Game!</button>
+        <button onclick="submitWord();" type="button" class="btn btn-secondary">Submit Word!</button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+    <script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type='text/javascript' src="assets/js/scrabble.js"></script>
+    <script>
+      $( document ).ready(function() {
+        // Generate game tiles
+        generateTiles(); 
+        // Create droppable board
+        droppableTileBoard();
+        // Initialize turn counter
+        turnCounter();
+      });
+    </script>
+
+  </body>
+</html> 

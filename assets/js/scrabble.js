@@ -95,6 +95,12 @@ function generateTiles() {
     
     // Make all the tiles draggable
     $(letter_piece_ID).draggable();
+    // This code will make peice snap back, commetned out for now
+//    {
+//      snap: ".normal_tile, .double_word, .double_word",
+//      snapMode: "outer",
+//      revert: "invalid"
+//    }
   }
 }
 
@@ -108,6 +114,12 @@ function droppableTileBoard() {
       var letterDraggable = ui.draggable.attr("src");
       var parsedLetter = parseLetter(letterDraggable);
       var getNumber = LetterNumber[parsedLetter].value;
+      // Center the tile to the board piece, commented out for now
+//      ui.draggable.position({
+//          my: "center",
+//          at: "center",
+//          of: $(this)
+//      });
       // Add letter to lookup string
       dictionaryWord += parsedLetter;
       // Update the score

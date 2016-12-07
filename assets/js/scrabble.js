@@ -1,3 +1,17 @@
+//File: scrabble.js
+//4610 Assignment 9: Recreate Scrabble
+//Michael Zurawski, UMass Lowell Computer Science, michael_zurawski@student.uml.edu
+//updated by Mike on December 1, at 6:00 PM
+//Purpose: Create a Scrabble game
+//Sources: 
+// http://stackoverflow.com/questions/941206/jquery-add-image-inside-of-div-tag
+// https://stackoverflow.com/questions/10863658/load-image-with-jquery-and-append-it-to-the-dom
+// http://stackoverflow.com/questions/2390789/how-to-replace-all-dots-in-a-string-using-javascript
+// http://ejohn.org/blog/dictionary-lookups-in-javascript/
+// https://regex101.com/
+// https://jqueryui.com/
+// Credits to Jesse Heines, Jason Downing, W3schools, and Stack Overflow
+
 // Credits to Jesse Heines for the data structure
 var ScrabbleTiles = [];
 ScrabbleTiles[0] = {"letter": "A", "value": 1, "original_distribution": 9, "number_remaining": 9};

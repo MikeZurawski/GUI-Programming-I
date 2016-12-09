@@ -1,0 +1,124 @@
+/*
+File: pacific.css
+4610 Assignment 3: Style a site with External CSS
+Michael Zurawski, UMass Lowell Computer Science, michael_zurawski@student.uml.edu
+updated by Mike on September 21, at 6:00 PM
+Purpose: Contains all the styleing for index.html
+*/
+header, hgroup, nav, footer, figure, figcaption, aside, section, article {
+	display: block;
+}
+/* Gradient is here */
+body {
+	background: linear-gradient(to bottom, white, #00569f);
+    background-repeat: no-repeat;
+	color: #666666;
+	font-family: Arial, Helvetica, sans-serif;
+}
+html {
+    height: 100%;
+    width: 100%;
+}
+/* Moved code to wrapper to because I got points of in last assignment for it in this selector */
+#wrapper {
+    width: 80%;
+    background: white;
+    min-width: 600px;
+    background-color: #8fc7e3;
+    background: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+}
+
+#content {
+
+    margin-left: 175px;
+    background-color: white;
+    font-size: 16px;
+    height: 550px;
+}
+
+#content .resort {
+    font-size: 130%;
+    color: deepskyblue;
+}
+#content p {
+    margin-left: 340px;
+}
+#content ul {
+    list-style: none;   
+    list-style-image: url(marker.gif);
+    list-style-position: inside;
+}
+img {
+    padding: 20px;
+    float: left;
+    margin: 0 0 15px 20px;
+}
+#contact {
+    margin-left: 295px;
+}
+/* nav stuff */
+nav {
+    float: left; 
+    width: 210px;
+    height: 700px;
+    background-color: lightblue;
+	/*font-weight: bold; */
+}
+nav ul {
+	font-size: 1.2em;
+    list-style: none;
+}
+
+nav a:visited {
+	color: #344873;
+}   
+nav a:hover {
+	color: #FFFFFF;
+}
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #344873;
+}
+header {
+    background-color: #000032;
+    background-image: url(sunset.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 70px;
+}
+h1 {
+    font-family: Georgia, "Times New Roman", serif;
+	padding: 10px;
+    color: white;
+    margin-bottom: 0;
+    background: #000033 url("sunset.jpg");
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+h2 {
+	color: #3399CC;
+    margin-left: 60px;
+    padding-left: 15px;
+}
+
+h2 {
+  
+	font-family: Georgia, "Times New Roman", serif;
+}
+#contact {
+	font-size: 90%;
+}
+dt {
+	color: #000033;
+}
+footer {
+	font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    margin-left: 210px;
+    padding: 47px;
+}
+
